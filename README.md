@@ -8,8 +8,12 @@ https://nikolaaks.github.io/Web-kehitys-projekti-team21/
 https://github.com/NikoLaaks/Web-kehitys-projekti-team21
 
 ## Niko
--
+- Kuvan säätämistä
+-linkkien suunnittelu
 ## Vilho
--
+- Kuvan säätämistä
+-linkkien suunnittelu
 ## Mika
-- 
+- index.html body kirjoituksia
+-kuvan lisääminen
+- linkit etusivulle
