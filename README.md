@@ -19,3 +19,4 @@ https://github.com/NikoLaaks/Web-kehitys-projekti-team21
 - linkit etusivulle
 -joukkueet.html sivu
 -linkkien päivitys
+-kuvien lataus
