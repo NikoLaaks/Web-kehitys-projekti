@@ -17,3 +17,5 @@ https://github.com/NikoLaaks/Web-kehitys-projekti-team21
 - index.html body kirjoituksia
 -kuvan lisääminen
 - linkit etusivulle
+-joukkueet.html sivu
+-linkkien päivitys
