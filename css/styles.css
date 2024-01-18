@@ -7,6 +7,12 @@ header{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     flex-wrap: wrap;
 }
+footer{
+    color: #F5F5F5;
+    background-color: #000000;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 0px 20px;
+}
 #header-links{
     flex-direction: row;
     display: flex;

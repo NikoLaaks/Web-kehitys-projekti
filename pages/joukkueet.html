@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -11,29 +11,35 @@
     main{
         display: block;
     }
+
     .joukkue{
         border: 1px solid #333;
         margin: 3px;
         display: flex;
         align-items: flex-start;
-        
+        flex-wrap: wrap;  
 
     }
+
     .kuva{
         width: 150px;
         height: 150px;
         margin-right: 5px;
+        margin-bottom: 2px;
+        max-width: 100%;
     }
+
     p{
         margin: 3px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     }
 
     .teksti{
         display: flex;
         flex-direction: column;
-        
+        flex-basis: min-content;
+        flex-grow: 1;
     }
-    
     </style>
 
 </head>
