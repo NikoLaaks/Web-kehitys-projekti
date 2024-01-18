@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     
     <style>
     
@@ -31,6 +32,7 @@
 
     p{
         margin: 3px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     }
 
     .teksti{
@@ -38,8 +40,40 @@
         flex-direction: column;
         flex-basis: min-content;
         flex-grow: 1;
-        
     }
+    footer{
+            width: auto;
+            display: flex;
+            justify-content: center;
+         }
+         #otsikko{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+         }
+         h3{
+            display: inline-block;
+            margin-right: 20px;
+         }
+
+         .contact-us{
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+         }
+
+         .contact-form {
+            display: none;
+         }
+         .contact-us input[type="checkbox"]:checked + .contact-form{
+            display: block;
+         }
+         .contact-form .contact-us{
+            margin-bottom: 10px;
+         }
+            
+         
     </style>
 
 </head>
@@ -49,9 +83,9 @@
         <h1>Liiga - Suomen parasta kiekkoa</h1>
 
         <div id="header-links">
-        <h2><a href="pages/uutiset.html">Uutiset</a></h2>
-        <h2><a href="pages/tilastot.html">Tilastot</a></h2>
-        <h2><a href="pages/joukkueet.html">Joukkueet</a></h2>
+        <h2><a href="uutiset.html">Uutiset</a></h2>
+        <h2><a href="tilastot.html">Tilastot</a></h2>
+        <h2><a href="joukkueet.html">Joukkueet</a></h2>
     </div>
     </header>
 
@@ -194,6 +228,19 @@
         </div>
     </section>
 </main>
+<footer>
+    <label class="contact-us" for="toggle-form">
+    <h3 id="otsikko">Contact us</h3>
+    <input type="checkbox" id="toggle-form">
+    <div class="contact-form">
+        <input type="email" placeholder="Sähköpostiosoite">
+        <textarea placeholder="Viesti"></textarea>
+    </div>
+</label>
+    <h3 id="otsikko">Kouluprojekti</h3>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     
 </body>
 </html>
