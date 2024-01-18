@@ -12,7 +12,9 @@ https://github.com/NikoLaaks/Web-kehitys-projekti-team21
 -linkkien suunnittelu
 ## Vilho
 - Kuvan säätämistä
--linkkien suunnittelu
+- linkkien suunnittelu
+- tilastot.html sivu
+- Tilastotaulukko
 ## Mika
 - index.html body kirjoituksia
 -kuvan lisääminen
