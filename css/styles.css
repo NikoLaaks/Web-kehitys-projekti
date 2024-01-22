@@ -1,6 +1,6 @@
 header{
-    color: whitesmoke;
-    background-color: black;
+    color: #F5F5F5;
+    background-color: #000000;
     display: flex;
     justify-content: space-between;
     padding: 0px 20px;
@@ -26,12 +26,12 @@ a{
 }
 a:link{
     text-decoration: none;
-    color: white;
+    color: #ffffff;
     background-color: transparent;
 }
 a:visited{    
     text-decoration: none;
-    color: white;
+    color: #ffffff;
     background-color: transparent;
 }
 a:hover{
@@ -76,7 +76,7 @@ a.index-link{
     }
   }
   body{
-    background-color: grey;
+    background-color: #808080;
     margin:0;
 }
 
