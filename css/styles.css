@@ -16,7 +16,7 @@ footer{
 #header-links{
     flex-direction: row;
     display: flex;
-    padding-top: 5px;
+    flex-wrap: wrap;
 }
 a{
     margin-right: 10px;
@@ -67,17 +67,29 @@ main{
 a.index-link{
     background-color: rgba(83, 83, 83, 0.85);
 }
-@media (max-width: 720px) {
-    #index-links {
-      flex-direction: column;
-    }
-    header{
-        font-size: 2.7vw;
-    }
-  }
+
   body{
     background-color: #808080;
     margin:0;
 }
-
-
+header h1{
+    font-size: 33px;
+    font-weight: bold;
+    margin: 15px 0px;
+}
+header h2{
+    font-size: 25px;
+    font-weight: bold;
+    margin:20px
+}
+footer h3{
+    font-size: 25px;
+}
+@media (max-width: 720px) {
+    #index-links {
+      flex-direction: column;
+    }
+    header h2{
+        font-size: 20px;
+    }
+  }
