@@ -82,8 +82,16 @@ header h2{
     font-weight: bold;
     margin:20px
 }
-footer h3{
+footer h3 a{
     font-size: 25px;
+    font-weight: bold;
+}
+footer #otsikko{
+    font-size: 25px;
+    font-weight: bold;
+}
+footer h3{
+    margin: 15px 10px;
 }
 @media (max-width: 720px) {
     #index-links {
