@@ -1,19 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 <head>
     <link rel="stylesheet" href="../css/styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Kontakti sivusto käyttäjille</title>
 
     <style>
 
-    label,textarea {
+   label,textarea, input {
         font-size: 0.8rem;
         letter-spacing: 1px;
 }
+    main {
+        display: flex;
+        flex-direction: column;
+    }
 
-    textarea {
+    textarea, input {
         padding: 10px;
         max-width: 100%;
         line-height: 1.5;
@@ -25,6 +29,9 @@
     label {
         display: block;
         margin-bottom: 10px;
+}
+.input-group{
+    margin-bottom: 20px;
 }
 footer{
             width: auto;
@@ -40,7 +47,7 @@ footer{
          h3{
             display: block;
             margin-right: 7px;
-         }
+         } 
 
 
 
@@ -48,7 +55,7 @@ footer{
 </head>
 <body>
     <header>
-        <h1>Liiga - Suomen parasta kiekkoa</h1>
+        <h1><a href="../index.html">Liiga - Suomen parasta kiekkoa</a></h1>
 
         <div id="header-links">
         <h2><a href="uutiset.html">Uutiset</a></h2>
@@ -58,10 +65,17 @@ footer{
 </header>
 
     <main>
+        <div class="input-group">
         <label for="kommentti">Kirjoita viestisi alla olevaan tekstikenttään</label>
-        <textarea name="kommentti" id="kommentti" cols="30" rows="100">
-            
-        </textarea>
+        <textarea name="kommentti" id="kommentti" cols="100" rows="40"></textarea>
+    </div>
+    <div class="input-group">
+        <label for="email">Kirjoita sähköpostisi alla olevaan kenttään</label>
+        <input type="email" id="email" pattern=".+@example\.com" size="30" required />
+    </div>
+    <div class="input-group">
+        <input type="submit" value="Lähetä" />
+    </div>
 
     </main>
 
