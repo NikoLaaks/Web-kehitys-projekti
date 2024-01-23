@@ -16,6 +16,7 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        min-height: 100%;
     }
 
     textarea, input {
@@ -38,7 +39,8 @@
 footer{
             width: auto;
             display: flex;
-            justify-content: center;   
+            justify-content: center;
+           
             
          }
          #otsikko{
@@ -69,14 +71,24 @@ footer{
     <main>
         <div class="input-group">
         <label for="kommentti">Kirjoita viestisi alla olevaan tekstikenttään</label>
-        <textarea name="kommentti" id="kommentti" cols="100" rows="30"></textarea>
+        <textarea name="kommentti" id="kommentti" cols="50" rows="15"></textarea>
     </div>
     <div class="input-group">
         <label for="email">Kirjoita sähköpostisi alla olevaan kenttään</label>
-        <input type="email" id="email" pattern=".+@example\.com" size="30" required />
+        <input type="email" id="email" pattern=".+@example\.com" size="30" required>
     </div>
     <div class="input-group">
-        <input type="submit" value="Lähetä" />
+        <input type="submit" value="Lähetä">
+    </div>
+
+    <div>
+        <p><h4>FAQ</h4></p>
+        <p><h4>Mitä sivusto käsittelee?</h4></p>
+        <p>Sivusto käsittelee jääkiekon SM-Liigaa, Suomen korkeinta tasoa jääkiekossa.</p>
+        <p><h4>Onko sivusto kouluprojekti?</h4></p>
+        <p>Kyllä. Sivusto on vain kouluprojekti, eikä sitä käytetä mihinkään muuhun tarkoitukseen.</p>
+        <p><h4>Miten sivustoa päivitetään?</h4></p>
+        <p>Sivustoa päivitetään kurssien edetessä.</p>
     </div>
 
     </main>
