@@ -15,6 +15,8 @@ https://www.figma.com/file/UzZ8m8sJ7eFuk63U21f2qz/Web-Development-Project-Work?t
 - uutiset.html sivu
 - index.html sivun muokkaamista
 - headerin tekemistä
+- fonttien korjauksia
+- robots.txt tiedosto
 ## Vilho
 - Kuvan säätämistä
 - linkkien suunnittelu
