@@ -39,5 +39,8 @@
 
     // Sulje tietokantayhteys
     $yhteys->close();
+    
 }
 ?>
+
+<a href="../pages/admin.php">Palaa takaisin</a>
