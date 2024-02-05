@@ -150,7 +150,7 @@
         $ok=mysqli_close($yhteys); # suljetaan tietokantayhteys           
         ?>
 
-               
+            <!--   
             <div class="news-item">
                 <a href="https://www.iltalehti.fi/smliiga/a/f574a3e6-b72c-4397-a6cb-788183af00fa" target="_blank">
                     <img src="../images/uutiset/Sami_Niku_1.webp" alt="jääkiekkolija sami niku">
@@ -187,6 +187,7 @@
                     <h3 class="img-header">TPS:n päävalmentaja lyttäsi pelaajansa murskatappion jälkeen: "Viettivät vapaapäivää</h3>
                 </a>
             </div>
+        -->
         </article>
     </main>
     <footer>

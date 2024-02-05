@@ -6,7 +6,9 @@
     <title>Admin page</title>
 </head>
 <body>
-    <h2>Lisää Uutinen</h2>
+    <h2>Ohjeet uutisen lisääminen</h2>
+    <p>Kirjoita url muodossa osoite.fi eli vain www. jälkeen tulevat. <br>Muista antaa alt kohtaan lyhyt teksti mitä on kuvassa</p>
+
     <form action="../php/lisaa_uutinen.php" method="post" enctype="multipart/form-data">
         <label for="title">Otsikko:</label>
         <input type="text" id="title" name="title" required><br>
@@ -21,6 +23,8 @@
         <input type="file" id="image" name="image" accept="image/*" required><br>
 
         <input type="submit" value="Lisää Uutinen">
+        <!--Lisää tähän vielä joku preview tietokannassa olevista uutisista ja poisto mahdollisuus niille
+        esim otsikon perusteella poisto mahdollisuus-->
     </form>
 </body>
 </html>
