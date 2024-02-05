@@ -114,12 +114,43 @@
     </div>
     </header>
     <main>
+        <h1 style="text-align: center;text-decoration: underline;font-size: 30px;">Uusimpia uutisia liigasta</h1>
+        <article>   
         <?php
+            
+            //Yhdistetään tietokantaan
+            mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+            //include("./connect.php");
+            
+            
+
+            //$init=parse_ini_file("./.ht.asetukset.ini");
+            try{
+                //$yhteys=mysqli_connect($init["databaseserver"], $init["username"], $init["password"], $init["database"]); #(db, user, password, dbname) otetaan yhteys tietokantaan kyseisillä tiedoilla
+                $yhteys=mysqli_connect("db", "root", "password", "testiuutiset");
+            }
+            catch(Exception $e){
+                header("Location:yhteysvirhe.html");# jos yhteys ei onnistu niin siirry halutulle virhesivulle
+                exit;
+            }
+            # haetaan uutiset taulusta title, url ja kuvan tiedostonimi
+            $tulos=mysqli_query($yhteys, "SELECT title, url, imagename, alt FROM uutiset");
+            if($tulos->num_rows > 0) {
+                while($row = mysqli_fetch_array($tulos)) {
+                    echo "<div class='news-item'>";
+                    echo "<a href='https://www.{$row['url']}' target='_blank'>";
+                    echo "<img src='{$row['imagename']}' alt='{$row['alt']}'>";
+                    echo "<h3 class='img-header'>{$row['title']}</h3>";
+                    echo "</a>";
+                    echo "</div>";
+                }
+            } else {
+                echo "Uutisia ei löytynyt";
+            }  
+        $ok=mysqli_close($yhteys); # suljetaan tietokantayhteys           
         ?>
 
-
-        <h1 style="text-align: center;text-decoration: underline;font-size: 30px;">Uusimpia uutisia liigasta</h1>
-        <article>           
+               
             <div class="news-item">
                 <a href="https://www.iltalehti.fi/smliiga/a/f574a3e6-b72c-4397-a6cb-788183af00fa" target="_blank">
                     <img src="../images/uutiset/Sami_Niku_1.webp" alt="jääkiekkolija sami niku">
