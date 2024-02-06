@@ -62,13 +62,14 @@
 </header>
 
     <main>
+        <form action="../php/viestit.php" method="post">
         <div class="input-group">
         <label for="kommentti">Kirjoita viestisi alla olevaan tekstikenttään</label>
         <textarea name="kommentti" id="kommentti" cols="30" rows="15"></textarea>
     </div>
     <div class="input-group">
-        <label for="email">Kirjoita sähköpostisi alla olevaan kenttään</label>
-        <input type="email" id="email" pattern=".+@example\.com" size="30" required>
+        <label for="username">Kirjoita käyttäjätunnuksesi alla olevaan kenttään</label>
+        <input type="text" name="kayttajatunnus" id="kayttajatunnus" size="30" required>
     </div>
     <div class="input-group">
         <input type="submit" value="Lähetä">
