@@ -11,7 +11,7 @@
     <h3>Uusi käyttäjä, rekisteröidy alla!</h3>
     <form name="rekisteroidy" action="../php/rekisteroidy.php" method="post">
         Käyttäjänimi: <input type="text" name="uusikayttaja" size="40" maxlength="20"/>
-        Salasana: <input type="text" name="uusisalasana" />
+        Salasana: <input type="password" name="uusisalasana" />
         <input type="submit" name="rekisteröityminen" value="Rekisteröidy" />
     </form>
 
