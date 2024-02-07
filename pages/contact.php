@@ -71,8 +71,8 @@
         <p>Jäljellä oleva merkkimäärä: <span id ="merkkienMaara">255</span></p>
     </div>
     <div class="input-group">
-        <label for="username">Kirjoita käyttäjätunnuksesi alla olevaan kenttään</label>
-        <input type="text" name="kayttajatunnus" id="kayttajatunnus" size="30" required>
+        <label for="email">Kirjoita sähköpostiosoitteesti alla olevaan kenttään</label>
+        <input type="text" name="kayttajatunnus" id="kayttajantunnus" size="30" required>
     </div>
     <div class="input-group">
         <input type="submit" value="Lähetä">
