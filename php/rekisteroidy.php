@@ -1,14 +1,5 @@
 <?php
-    //initials=parse_ini_file("./.ht.asetukset.ini");
-    try{
-        //$yhteys=mysqli_connect($initials["palvelin"], $initials["tunnus"], $initials["pass"], $initials["tk"]);
-        $yhteys=mysqli_connect("db", "root", "password", "testiuutiset");
-    
-    }
-        catch(Exception $e){
-        header("../pages/yhteysvirhe.html");
-    exit;
-}
+    include('./connect.php');
     //Luetaan lomakkeelta tulleet tiedot funktiolla $_POST
     //jos syötteet ovat olemassa
     $uusikayttaja=isset($_POST["uusikayttaja"]) ? $_POST["uusikayttaja"] : "";
