@@ -6,7 +6,7 @@
     
     }
         catch(Exception $e){
-        header("./pages/yhteysvirhe.html");
+        header("../pages/yhteysvirhe.html");
     exit;
 }
 
@@ -18,7 +18,7 @@
     //Jos ei jompaa kumpaa tai kumpaakaan tietoa ole annettu
     //ohjataan pyyntö takaisin lomakkeelle
     if (empty($kayttajanimi) || empty($salasana)){
-        header("Location:../pages/kirjautuminen.php");
+        header("Location:../pages/kirjautumis.php");
     exit;
 }
     $result=mysqli_query($yhteys, "SELECT id, salasana, is_admin from kayttajat where kayttajatunnus= '$kayttajanimi'");

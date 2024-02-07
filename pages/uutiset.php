@@ -108,9 +108,9 @@
         <h1><a href="../index.html">Liiga - Suomen parasta kiekkoa</a></h1>
 
         <div id="header-links">
-        <h2><a href="uutiset.html">Uutiset</a></h2>
-        <h2><a href="tilastot.html">Tilastot</a></h2>
-        <h2><a href="joukkueet.html">Joukkueet</a></h2>
+        <h2><a href="./uutiset.php">Uutiset</a></h2>
+        <h2><a href="./tilastot.html">Tilastot</a></h2>
+        <h2><a href="./joukkueet.html">Joukkueet</a></h2>
     </div>
     </header>
     <main>
@@ -180,7 +180,7 @@
         </article>
     </main>
     <footer>
-        <h3><a href="contact.html">Contact us</a></h3>
+        <h3><a href="./contact.php">Contact us</a></h3>
         <h3>Kouluprojekti</h3>
     </footer>
 </body>

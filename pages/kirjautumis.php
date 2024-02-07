@@ -10,15 +10,15 @@
     
     <h3>Uusi käyttäjä, rekisteröidy alla!</h3>
     <form name="rekisteroidy" action="../php/rekisteroidy.php" method="post">
-        Käyttäjänimi: <input type="text" name="uusikayttaja" size="40" maxlength="20"/>
-        Salasana: <input type="password" name="uusisalasana" />
+        Käyttäjänimi: <input type="text" name="uusikayttaja" size="40" maxlength="20" required />
+        Salasana: <input type="password" name="uusisalasana" required />
         <input type="submit" name="rekisteröityminen" value="Rekisteröidy" />
     </form>
 
     <h3>Kirjaudu alla!</h3>
     <form name="kirjautuminen"  action="../php/kirjautuminen.php" method="post">
-        Käyttäjänimi: <input type="text" name="kayttajanimi" size="40" maxlength="20"/>
-        Salasana: <input type="password" name="salasana" />
+        Käyttäjänimi: <input type="text" name="kayttajanimi" size="40" maxlength="20" required/>
+        Salasana: <input type="password" name="salasana" required />
         <input type="submit" name="kirjaudu" value="Kirjaudu" />
     </form>
 

@@ -53,7 +53,7 @@ if(isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1) {
                 $yhteys=mysqli_connect("db", "root", "password", "testiuutiset");
             }
             catch(Exception $e){
-                header("Location:yhteysvirhe.html");# jos yhteys ei onnistu niin siirry halutulle virhesivulle
+                header("Location:./yhteysvirhe.html");# jos yhteys ei onnistu niin siirry halutulle virhesivulle
                 exit;
             }
 

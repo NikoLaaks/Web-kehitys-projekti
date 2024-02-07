@@ -13,7 +13,7 @@
         $yhteys=mysqli_connect("db", "root", "password", "testiuutiset");
     }
     catch(Exception $e){
-        header("./pages/yhteysvirhe.html");# jos yhteys ei onnistu niin siirry halutulle virhesivulle
+        header("../pages/yhteysvirhe.html");# jos yhteys ei onnistu niin siirry halutulle virhesivulle
         exit;
     }
 
