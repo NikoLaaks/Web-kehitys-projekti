@@ -67,9 +67,13 @@
         <form action="../php/viestit.php" method="post">
         <div class="input-group">
         <label for="kommentti">Kirjoita viestisi alla olevaan tekstikenttään</label>
-        <textarea name="kommentti" id="kommentti" cols="30" rows="15"></textarea>
+        <textarea name="kommentti" id="kommentti" cols="30" rows="15" maxlength="255"></textarea>
+        <p>Jäljellä oleva merkkimäärä: <span id ="merkkienMaara">255</span></p>
     </div>
-    
+    <div class="input-group">
+        <label for="email">Kirjoita sähköpostiosoitteesti alla olevaan kenttään</label>
+        <input type="text" name="kayttajatunnus" id="kayttajantunnus" size="30" required>
+    </div>
     <div class="input-group">
         <input type="submit" value="Lähetä">
     </div>
@@ -87,9 +91,32 @@
     </main>
 
     <footer>
-        <h3><a href="../pages/contact.html">Contact us</a></h3>
+        <h3><a href="../pages/contact.php">Contact us</a></h3>
         <h3>Kouluprojekti</h3>
     </footer>
+
+    <script>
+        //Lisätään kuuntelija, tarkistetaan kaikkien tarvittavien elementtien olevan valmiina
+    document.addEventListener('DOMContentLoaded', function() {
+    var tekstikentta = document.getElementById('kommentti'); //Haetaan tekstikentästä teksti
+    var merkkienMaaraElementti = document.getElementById('merkkienMaara'); 
+
+    //Lisää kuuntelijan input tapahtumalle
+    tekstikentta.addEventListener('input', function() { 
+        
+        var syotettyTeksti = tekstikentta.value;    //
+        var merkkienMaara = 255 - syotettyTeksti.length;
+
+        merkkienMaaraElementti.textContent = merkkienMaara;
+        
+        if (merkkienMaara < 0) {
+            tekstikentta.value = syotettyTeksti.substring(0, 255); // Rajoitetaan tekstiin 255 merkkiä
+            merkkienMaaraElementti.textContent = 0;
+        }
+        
+    });
+});
+    </script>
     
 </body>
 </html>
