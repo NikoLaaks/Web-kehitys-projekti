@@ -2,7 +2,7 @@
     //initials=parse_ini_file("./.ht.asetukset.ini");
     try{
         //$yhteys=mysqli_connect($initials["palvelin"], $initials["tunnus"], $initials["pass"], $initials["tk"]);
-        $yhteys=mysqli_connect("db", "root", "password", "kayttajatesti");
+        $yhteys=mysqli_connect("db", "root", "password", "testiuutiset");
     
     }
         catch(Exception $e){
@@ -42,6 +42,6 @@
 
     ?>
 
-    <meta http-equiv="refresh" content="2; url=../pages/contact.html" />
+    <meta http-equiv="refresh" content="2; url=../pages/contact.php" />
 
     
