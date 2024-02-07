@@ -72,7 +72,7 @@
     </div>
     <div class="input-group">
         <label for="email">Kirjoita sähköpostiosoitteesti alla olevaan kenttään</label>
-        <input type="text" name="kayttajatunnus" id="kayttajantunnus" size="30" required>
+        <input type="text" name="email" id="email" size="30" required>
     </div>
     <div class="input-group">
         <input type="submit" value="Lähetä">
