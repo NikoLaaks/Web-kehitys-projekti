@@ -23,14 +23,14 @@
 
             <?php
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                if (isset($_POST['kommentti']) && isset($_POST['kayttajatunnus'])) {
+                if (isset($_POST['kommentti'])) {
                     $kommentti = $_POST['kommentti'];
                     $kayttajatunnus = $_SESSION['kayttajanimi'];
 
                     $servername = "db";
                     $username = "root";
                     $password = "password";
-                    $dbname = "contact";
+                    $dbname = "testiuutiset";
 
                     $yhteys = new mysqli($servername, $username, $password, $dbname);
 
@@ -38,10 +38,10 @@
                         die("Connection failed: " . $yhteys->connect_error);
                     }
 
-                    $sql = "INSERT INTO contact (message, username) VALUES (?, ?)";
+                    $sql = "INSERT INTO contact (message, user_id) VALUES (?, ?)";
                     $stmt = $yhteys->prepare($sql);
 
-                    $stmt->bind_param("ss", $kommentti, $kayttajatunnus);
+                    $stmt->bind_param("si", $kommentti, $_SESSION['id']);
                     $stmt->execute();
 
                     if ($stmt->affected_rows > 0) {

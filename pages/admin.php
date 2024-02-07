@@ -1,3 +1,19 @@
+<?php
+// Start the session
+session_start();
+
+// Check if the user is logged in and is an admin
+if(isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1) {
+    // User is logged in as an admin, show the admin page
+    echo "Tervetuloa admin sivulle!";
+} else {
+    // User is not logged in as an admin, redirect them to another page
+    header("Location:./kirjautumis.php"); // Redirect to the login page
+    exit();
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,6 +66,17 @@
                 <a href='./muokkaahenkilo.php?muokattava=$rivi->id'>Muokkaa</a>"; #tulostetaan rivit html lista elementteihin
             }
             
+            // Tulostetaan viestit
+            $tulos=mysqli_query($yhteys, "select * from contact");# haetaan henkilo taulusta kaikki rivit(myös tietokannan nimi on henkilo)
+            
+            while ($rivi=mysqli_fetch_object($tulos)){ # loopataan rivien läpi 
+                print "<li>$rivi->title\n 
+                <a href='../php/poista_uutinen.php?poistettava=$rivi->id'>Poista</a>\n
+                <a href='./muokkaahenkilo.php?muokattava=$rivi->id'>Muokkaa</a>"; #tulostetaan rivit html lista elementteihin
+            }
+
+
+
             $ok=mysqli_close($yhteys); # suljetaan tietokantayhteys
             ?>
     </form>
