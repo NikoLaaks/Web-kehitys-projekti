@@ -23,28 +23,53 @@
 
             <?php
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                if (isset($_POST['kommentti'])) {
-                    $kommentti = $_POST['kommentti'];
-                    $kayttajatunnus = $_SESSION['kayttajanimi'];
+                //Avataan tietokanta yhteys
+                include('./connect.php');
+                //Tarkistetaan onko käyttäjä kirjautuneena
+                if(isset($_SESSION['user_id'])){
+                
+                    if (isset($_POST['kommentti'])) {
+                        $kommentti = $_POST['kommentti'];
+                        $email = $_POST['email'];
+                        $kayttajatunnus = $_SESSION['kayttajanimi'];
 
-                    include('./connect.php');
+                        $sql = "INSERT INTO contact (message, user_id, email) VALUES (?, ?, ?)";
+                        $stmt = $yhteys->prepare($sql);
+                        $stmt->bind_param("sis", $kommentti, $_SESSION['id'], $email);
+                        $stmt->execute();
 
-                    $sql = "INSERT INTO contact (message, user_id) VALUES (?, ?)";
-                    $stmt = $yhteys->prepare($sql);
+                        if ($stmt->affected_rows > 0) {
+                            print "Viesti lähetetty.";
+                        } else {
+                            print "Viestin lähetys epäonnistui.";
+                        }
 
-                    $stmt->bind_param("si", $kommentti, $_SESSION['id']);
-                    $stmt->execute();
-
-                    if ($stmt->affected_rows > 0) {
-                        print "Viesti lähetetty.";
+                        $stmt->close();
+                        $yhteys->close();
                     } else {
-                        print "Viestin lähetys epäonnistui.";
+                        print "Kaikkia tarvittavia tietoja ei ole annettu.";
                     }
+                }else{ //Jos käyttäjä ei ole kirjautunut niin lähdetään tästä
+                    if (isset($_POST['kommentti'])) {
+                        $kommentti = $_POST['kommentti'];
+                        $email = $_POST['email'];
 
-                    $stmt->close();
-                    $yhteys->close();
-                } else {
-                    print "Kaikkia tarvittavia tietoja ei ole annettu.";
+                        $sql = "INSERT INTO contact (message, email) VALUES (?, ?)";
+                        $stmt = $yhteys->prepare($sql);
+                        $stmt->bind_param("ss", $kommentti, $email);
+                        $stmt->execute();
+
+                        if ($stmt->affected_rows > 0) {
+                            print "Viesti lähetetty.";
+                        } else {
+                            print "Viestin lähetys epäonnistui.";
+                        }
+
+                        $stmt->close();
+                        $yhteys->close();
+                    } else {
+                        print "Kaikkia tarvittavia tietoja ei ole annettu.";
+                    }
                 }
             } else {
                 print "Lomaketta ei ole lähetetty.";
