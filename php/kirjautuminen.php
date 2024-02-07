@@ -29,7 +29,7 @@
             session_start();
             $_SESSION['logged_in'] = true;
             $_SESSION['kayttajanimi'] = $kayttajanimi;
-            $_SESSION['salasana'] = $salasana;
+            
             echo("Kirjautuminen onnistui!");
         } else {
             echo("Kirjautuminen epäonnistui!");
