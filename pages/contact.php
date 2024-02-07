@@ -69,10 +69,7 @@
         <label for="kommentti">Kirjoita viestisi alla olevaan tekstikenttään</label>
         <textarea name="kommentti" id="kommentti" cols="30" rows="15"></textarea>
     </div>
-    <div class="input-group">
-        <label for="email">Kirjoita sähköpostiosoitteesti alla olevaan kenttään</label>
-        <input type="text" name="kayttajatunnus" id="kayttajatunnus" size="30" required>
-    </div>
+    
     <div class="input-group">
         <input type="submit" value="Lähetä">
     </div>

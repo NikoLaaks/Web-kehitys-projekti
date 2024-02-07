@@ -21,7 +21,7 @@
         header("Location:../pages/kirjautuminen.php");
     exit;
 }
-    $result=mysqli_query($yhteys, "SELECT salasana from kayttajat where kayttajatunnus= '$kayttajanimi'");
+    $result=mysqli_query($yhteys, "SELECT id, salasana, is_admin from kayttajat where kayttajatunnus= '$kayttajanimi'");
 
     if ($row = mysqli_fetch_assoc($result)) {
         // Tarkista salasana hash
@@ -29,6 +29,8 @@
             session_start();
             $_SESSION['logged_in'] = true;
             $_SESSION['kayttajanimi'] = $kayttajanimi;
+            $_SESSION['id'] = $row['id'];
+            $_SESSION['is_admin'] = $row['is_admin'];
             
             echo("Kirjautuminen onnistui!");
         } else {
