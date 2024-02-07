@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="fi">
 <head>
@@ -23,7 +25,7 @@
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if (isset($_POST['kommentti']) && isset($_POST['kayttajatunnus'])) {
                     $kommentti = $_POST['kommentti'];
-                    $kayttajatunnus = $_POST['kayttajatunnus'];
+                    $kayttajatunnus = $_SESSION['kayttajanimi'];
 
                     $servername = "db";
                     $username = "root";
