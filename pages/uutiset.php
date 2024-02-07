@@ -120,19 +120,8 @@
             
             //Yhdistetään tietokantaan
             mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-            //include("./connect.php");
+            include("../php/connect.php");
             
-            
-
-            //$init=parse_ini_file("./.ht.asetukset.ini");
-            try{
-                //$yhteys=mysqli_connect($init["databaseserver"], $init["username"], $init["password"], $init["database"]); #(db, user, password, dbname) otetaan yhteys tietokantaan kyseisillä tiedoilla
-                $yhteys=mysqli_connect("db", "root", "password", "testiuutiset");
-            }
-            catch(Exception $e){
-                header("Location:yhteysvirhe.html");# jos yhteys ei onnistu niin siirry halutulle virhesivulle
-                exit;
-            }
             # haetaan uutiset taulusta title, url ja kuvan tiedostonimi
             $tulos=mysqli_query($yhteys, "SELECT title, url, imagename, alt FROM uutiset");
             if($tulos->num_rows > 0) {

@@ -27,16 +27,7 @@
                     $kommentti = $_POST['kommentti'];
                     $kayttajatunnus = $_SESSION['kayttajanimi'];
 
-                    $servername = "db";
-                    $username = "root";
-                    $password = "password";
-                    $dbname = "testiuutiset";
-
-                    $yhteys = new mysqli($servername, $username, $password, $dbname);
-
-                    if ($yhteys->connect_error) {
-                        die("Connection failed: " . $yhteys->connect_error);
-                    }
+                    include('./connect.php');
 
                     $sql = "INSERT INTO contact (message, user_id) VALUES (?, ?)";
                     $stmt = $yhteys->prepare($sql);
