@@ -30,6 +30,6 @@
     mysqli_stmt_execute($stmt);
     //Suljetaan tietokantayhteys
     mysqli_close($yhteys);
-    header("Location:../pages/contact.php");
+    header("Location:../pages/kirjautumis.php");
 exit;
 ?>

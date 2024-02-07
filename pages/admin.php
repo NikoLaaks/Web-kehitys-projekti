@@ -58,7 +58,7 @@ if(isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1) {
             }
 
 
-            $tulos=mysqli_query($yhteys, "select * from uutiset");# haetaan henkilo taulusta kaikki rivit(myös tietokannan nimi on henkilo)
+            $tulos=mysqli_query($yhteys, "select * from uutiset");# haetaan uutiset taulusta kaikki rivit
             
             while ($rivi=mysqli_fetch_object($tulos)){ # loopataan rivien läpi 
                 print "<li>$rivi->title\n 
@@ -66,19 +66,18 @@ if(isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1) {
                 <a href='./muokkaahenkilo.php?muokattava=$rivi->id'>Muokkaa</a>"; #tulostetaan rivit html lista elementteihin
             }
             
-            // Tulostetaan viestit
-            $tulos=mysqli_query($yhteys, "select * from contact");# haetaan henkilo taulusta kaikki rivit(myös tietokannan nimi on henkilo)
             
-            while ($rivi=mysqli_fetch_object($tulos)){ # loopataan rivien läpi 
-                print "<li>$rivi->title\n 
-                <a href='../php/poista_uutinen.php?poistettava=$rivi->id'>Poista</a>\n
-                <a href='./muokkaahenkilo.php?muokattava=$rivi->id'>Muokkaa</a>"; #tulostetaan rivit html lista elementteihin
-            }
-
-
-
-            $ok=mysqli_close($yhteys); # suljetaan tietokantayhteys
             ?>
     </form>
+    <?php
+    // Tulostetaan viestit
+            $tulos=mysqli_query($yhteys, "select * from contact");# haetaan contact taulusta kaikki rivit
+            
+            while ($rivi=mysqli_fetch_object($tulos)){ # loopataan rivien läpi 
+                echo "<li>$rivi->user_id $rivi->message";
+            }
+
+            $ok=mysqli_close($yhteys); # suljetaan tietokantayhteys
+        ?>
 </body>
 </html>
