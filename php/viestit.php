@@ -59,7 +59,7 @@
                 print "Lomaketta ei ole lähetetty.";
             }
             ?>
-            <meta http-equiv="refresh" content="2; url=../pages/contact.html" />
+            <meta http-equiv="refresh" content="2; url=../pages/contact.php" />
         </section>
     </main>
 

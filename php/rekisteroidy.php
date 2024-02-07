@@ -6,7 +6,7 @@
     
     }
         catch(Exception $e){
-        header("Location:./yhteysvirhe.html");
+        header("./pages/yhteysvirhe.html");
     exit;
 }
     //Luetaan lomakkeelta tulleet tiedot funktiolla $_POST

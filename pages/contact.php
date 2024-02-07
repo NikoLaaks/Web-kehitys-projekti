@@ -71,7 +71,7 @@
     </div>
     <div class="input-group">
         <label for="email">Kirjoita sähköpostiosoitteesti alla olevaan kenttään</label>
-        <input type="text" name="kayttajatunnus" id="kayttajatunnus" size="30" required>
+        <input type="text" name="kayttajatunnus" id="kayttajantunnus" size="30" required>
     </div>
     <div class="input-group">
         <input type="submit" value="Lähetä">
@@ -90,7 +90,7 @@
     </main>
 
     <footer>
-        <h3><a href="../pages/contact.html">Contact us</a></h3>
+        <h3><a href="../pages/contact.php">Contact us</a></h3>
         <h3>Kouluprojekti</h3>
     </footer>
     
