@@ -18,16 +18,23 @@
     move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
     
     // Lisää tiedot tietokantaan
-    $sql = "INSERT INTO uutiset (title, url, imagename, alt) VALUES ('$title', '$url', '$target_file', '$alt')";
-
-    if ($yhteys->query($sql) === TRUE) {
+    $sql = "INSERT INTO uutiset (title, url, imagename, alt) VALUES (?, ?, ?, ?)";
+    //Valmistellaan sql-lause
+    $stmt=mysqli_prepare($yhteys, $sql);
+    //Sijoitetaan muuttujat oikeisiin paikkoihin
+    mysqli_stmt_bind_param($stmt, 'ssss', $title, $url, $target_file, $alt);
+    //Suoritetaan sql-lause
+    $success = mysqli_stmt_execute($stmt);
+    //Suljetaan tietokantayhteys
+    
+    if ($success) {
         echo "Uutinen lisätty onnistuneesti!";
     } else {
-        echo "Virhe: " . $sql . "<br>" . $yhteys->error;
+        echo "Virhe: " . $yhteys->error;
     }
-
     // Sulje tietokantayhteys
-    $yhteys->close();
+    mysqli_stmt_close($stmt);
+    mysqli_close($yhteys);
     
 }
 ?>
