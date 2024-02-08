@@ -126,7 +126,7 @@ session_start();
             include("../php/connect.php");
             
             # haetaan uutiset taulusta title, url ja kuvan tiedostonimi
-            $tulos=mysqli_query($yhteys, "SELECT title, url, imagename, alt FROM uutiset");
+            $tulos=mysqli_query($yhteys, "SELECT title, url, imagename, alt FROM uutiset ORDER BY id DESC");
             if($tulos->num_rows > 0) {
                 while($row = mysqli_fetch_array($tulos)) {
                     echo "<div class='news-item'>";
@@ -142,44 +142,6 @@ session_start();
         $ok=mysqli_close($yhteys); # suljetaan tietokantayhteys           
         ?>
 
-            <!--   
-            <div class="news-item">
-                <a href="https://www.iltalehti.fi/smliiga/a/f574a3e6-b72c-4397-a6cb-788183af00fa" target="_blank">
-                    <img src="../images/uutiset/Sami_Niku_1.webp" alt="jääkiekkolija sami niku">
-                    <h3 class="img-header">JYP hyllytti Sami Nikun – Myös muut tähdet lähdössä?</h3>
-                </a>
-            </div>
-            <div class="news-item">
-                   <a href="https://www.is.fi/sm-liiga/art-2000010112727.html" target="_blank">
-                       <img src="../images/uutiset/Jyp_Rautakorpi_Nieminen.webp" alt="jukka rautakorpi ja ville nieminen">
-                     <h3 class="img-header">Hurjia paljastuksia Jukka Rautakorven potkujen taustalta – tilanne tulehtui, kun mysteerimies Helsingistä astui kuvioihin</h3>
-                  </a>
-             </div>
-             <div class="news-item">
-                  <a href="https://www.mtvuutiset.fi/artikkeli/sm-liigassa-hakellyttava-kaanne-tommi-niemela-oli-jo-potku-uhan-alla-nyt-han-palaa-dramaattiseen-kriisikokoukseen/8859644" target="_blank">
-                     <img src="../images/uutiset/Tommi_Niemelä.jpg" alt="pelicansin valmentaja tommi niemelä">
-                    <h3 class="img-header">SM-liigassa häkellyttävä käänne: Tommi Niemelä oli jo potku-uhan alla – nyt hän palaa dramaattiseen ”kriisikokoukseen”</h3>
-                 </a>
-            </div>
-            <div class="news-item">
-                <a href="https://www.jatkoaika.com/Haastattelu/Komarov-kuntoutui-ensimm%C3%A4iseen-HIFKn-liigaotteluunsa-%E2%88%92-T%C3%A4ytyi-katsoa-ett%C3%A4-kest%C3%A4n-pelitilanteet/255028" target="_blank">
-                    <img src="../images/uutiset/Leo_Komarov.jpg" alt="hifk:n pelaaja leo komarov">
-                    <h3 class="img-header">Komarov kuntoutui ensimmäiseen HIFK:n liigaotteluunsa − "Täytyi katsoa, että kestän pelitilanteet"</h3>
-                </a>
-            </div>
-            <div class="news-item">
-                <a href="https://www.iltalehti.fi/smliiga/a/5be6e181-4e51-4f5c-aa0d-4c379c627806" target="_blank">
-                    <img src="../images/uutiset/Mikko_Heiskanen.webp" alt="jypin päävalmentaja mikko heiskanen">
-                    <h3 class="img-header">Kohuvalmentajalta outo siirto</h3>
-                </a>
-            </div>
-            <div class="news-item">
-                <a href="https://www.sportti.com/uutinen.asp?CAT=2-1&ID=509587" target="_blank">
-                    <img src="../images/uutiset/Tommi_Miettinen_TPS.webp" alt="turun palloseuran päävalmentaja tommi miettinen">
-                    <h3 class="img-header">TPS:n päävalmentaja lyttäsi pelaajansa murskatappion jälkeen: "Viettivät vapaapäivää</h3>
-                </a>
-            </div>
-        -->
         </article>
     </main>
     <footer>
