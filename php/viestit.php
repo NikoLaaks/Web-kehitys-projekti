@@ -26,18 +26,24 @@
                 //Avataan tietokanta yhteys
                 include('./connect.php');
                 //Tarkistetaan onko käyttäjä kirjautuneena
-                if(isset($_SESSION['user_id'])){
+                if(isset($_SESSION['id'])){
                 
                     if (isset($_POST['kommentti'])) {
+                        //Haetaan lomakkeelta saadut tiedot.
                         $kommentti = $_POST['kommentti'];
                         $email = $_POST['email'];
                         $kayttajatunnus = $_SESSION['kayttajanimi'];
 
+                        //Haetaan käyttäjän id istunnosta.
+                        $user_id = $_SESSION['id'];
+
+                        //Valmistellaan lauseke, joka lisää viestin tietokantaan
                         $sql = "INSERT INTO contact (message, user_id, email) VALUES (?, ?, ?)";
                         $stmt = $yhteys->prepare($sql);
-                        $stmt->bind_param("sis", $kommentti, $_SESSION['id'], $email);
+                        $stmt->bind_param("sis", $kommentti, $user_id, $email);
                         $stmt->execute();
 
+                        //Tarkistetaan onnistuiko viestin lisääminen.
                         if ($stmt->affected_rows > 0) {
                             print "Viesti lähetetty.";
                         } else {
@@ -50,11 +56,13 @@
                         print "Kaikkia tarvittavia tietoja ei ole annettu.";
                     }
                 }else{ //Jos käyttäjä ei ole kirjautunut niin lähdetään tästä
+
                     if (isset($_POST['kommentti'])) {
                         $kommentti = $_POST['kommentti'];
                         $email = $_POST['email'];
-
-                        $sql = "INSERT INTO contact (message, email) VALUES (?, ?)";
+                        
+                        //Lisää tietokantaan viesti ja sähköpostiosoite.
+                        $sql = "INSERT INTO contact (message, email) VALUES (?, ?)"; 
                         $stmt = $yhteys->prepare($sql);
                         $stmt->bind_param("ss", $kommentti, $email);
                         $stmt->execute();
@@ -65,6 +73,7 @@
                             print "Viestin lähetys epäonnistui.";
                         }
 
+                        //Suljetaan yhteys
                         $stmt->close();
                         $yhteys->close();
                     } else {
