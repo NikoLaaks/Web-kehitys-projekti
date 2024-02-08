@@ -57,9 +57,9 @@ session_start();
         <h1>Liiga - Suomen parasta kiekkoa</h1>
 
         <div id="header-links">
-        <h2><a href="pages/uutiset.php">Uutiset</a></h2>
-        <h2><a href="pages/tilastot.html">Tilastot</a></h2>
-        <h2><a href="pages/joukkueet.html">Joukkueet</a></h2>
+        <h2><a href="./pages/uutiset.php">Uutiset</a></h2>
+        <h2><a href="./pages/tilastot.php">Tilastot</a></h2>
+        <h2><a href="./pages/joukkueet.php">Joukkueet</a></h2>
     </div>
     </header>
     <main>
@@ -67,22 +67,22 @@ session_start();
        
 
     <section id="index-links">
-        <a class="index-link" href="pages/uutiset.php">Uutiset</a>
-        <a class="index-link" href="pages/tilastot.html">Tilastot</a>
-        <a class="index-link" href="pages/joukkueet.html">Joukkueet</a>
+        <a class="index-link" href="./pages/uutiset.php">Uutiset</a>
+        <a class="index-link" href="./pages/tilastot.php">Tilastot</a>
+        <a class="index-link" href="./pages/joukkueet.php">Joukkueet</a>
         
     </section>
      
 </main>
 <footer>
-    <h3><a href="pages/contact.php">Contact us</a></h3>
+    <h3><a href="./pages/contact.php">Contact us</a></h3>
     
     <?php
     if (isset($_SESSION['logged_in'])) {
-      echo ("<h3><a href='php/logout.php'>Kirjaudu ulos</a></h3>");
+      echo ("<h3><a href='./php/logout.php'>Kirjaudu ulos</a></h3>");
       echo ("<p>Olet kirjautunut käyttäjällä: {$_SESSION['kayttajanimi']}</p>");
     } else {
-      echo ("<h3><a href='pages/kirjautumis.php'>Kirjaudu sisään</a></h3>");
+      echo ("<h3><a href='./pages/kirjautumis.php'>Kirjaudu sisään</a></h3>");
     }
     
     ?>

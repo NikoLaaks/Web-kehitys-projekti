@@ -4,6 +4,7 @@
     //jos syötteet ovat olemassa
     $uusikayttaja=isset($_POST["uusikayttaja"]) ? $_POST["uusikayttaja"] : "";
     $uusisalasana=isset($_POST["uusisalasana"]) ? $_POST["uusisalasana"] : "";
+    // Hash salasanan luominen
     $hashsalasana=password_hash($uusisalasana, PASSWORD_DEFAULT);
 
     //Jos ei jompaa kumpaa tai kumpaakaan tietoa ole annettu
@@ -11,6 +12,7 @@
     if (empty($uusikayttaja) || empty($uusisalasana)){
     exit;
 }
+    //Syötetään tietokantaan käyttäjän antamat kayttajatunnus, salasana
     $sql="insert into kayttajat (kayttajatunnus, salasana) values(?, ?)";
 
     //Valmistellaan sql-lause
