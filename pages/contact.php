@@ -67,12 +67,12 @@
         <form action="../php/viestit.php" method="post">
         <div class="input-group">
         <label for="kommentti">Kirjoita viestisi alla olevaan tekstikenttään</label>
-        <textarea name="kommentti" id="kommentti" cols="30" rows="15" maxlength="255"></textarea>
+        <textarea name="kommentti" id="kommentti" cols="30" rows="15" maxlength="255" required></textarea>
         <p>Jäljellä oleva merkkimäärä: <span id ="merkkienMaara">255</span></p>
     </div>
     <div class="input-group">
-        <label for="email">Kirjoita sähköpostiosoitteesti alla olevaan kenttään</label>
-        <input type="text" name="email" id="email" size="30" required>
+        <label for="email">Kirjoita halutessasi sähköpostiosoitteesti alla olevaan kenttään</label>
+        <input type="text" name="email" id="email" size="30">
     </div>
     <div class="input-group">
         <input type="submit" value="Lähetä">
