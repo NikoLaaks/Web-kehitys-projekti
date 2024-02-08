@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <h1><a href="../index.html">Liiga - Suomen parasta kiekkoa</a></h1>
+        <h1><a href="../index.php">Liiga - Suomen parasta kiekkoa</a></h1>
         <div id="header-links">
             <h2><a href="../pages/uutiset.php">Uutiset</a></h2>
             <h2><a href="../pages/tilastot.html">Tilastot</a></h2>
