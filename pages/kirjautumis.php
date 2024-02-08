@@ -15,6 +15,12 @@
         <input type="submit" name="rekisteröityminen" value="Rekisteröidy" />
     </form>
 
+    <?php
+    if (isset($_GET["login"])) {
+        echo ("Rekisteröinti onnistui!");
+    }
+    ?>
+
     <h3>Kirjaudu alla!</h3>
     <form name="kirjautuminen"  action="../php/kirjautuminen.php" method="post">
         Käyttäjänimi: <input type="text" name="kayttajanimi" size="40" maxlength="20" required/>

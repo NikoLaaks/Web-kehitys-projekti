@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fi">
 <head>
@@ -327,9 +330,18 @@ footer{
           </table>
     </main>
 
-    <footer id="contact">
-      <h3><a href="./contact.php">Contact us</a></h3>
-      <h3>Kouluprojekti</h3>
+    <footer>
+      <h3><a href="pages/contact.php">Contact us</a></h3>
+      
+      <?php
+      if (isset($_SESSION['logged_in'])) {
+        echo ("<h3><a href='php/logout.php'>Kirjaudu ulos</a></h3>");
+        echo ("<p>Olet kirjautunut käyttäjällä: {$_SESSION['kayttajanimi']}</p>");
+      } else {
+        echo ("<h3><a href='pages/kirjautumis.php'>Kirjaudu sisään</a></h3>");
+      }
+      
+      ?>
   </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

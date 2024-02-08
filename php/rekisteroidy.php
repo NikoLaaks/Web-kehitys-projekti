@@ -21,6 +21,6 @@
     mysqli_stmt_execute($stmt);
     //Suljetaan tietokantayhteys
     mysqli_close($yhteys);
-    header("Location:../pages/kirjautumis.php");
+    header("Location:../pages/kirjautumis.php?login=ok");
 exit;
 ?>
