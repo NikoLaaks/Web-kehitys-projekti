@@ -59,8 +59,8 @@ footer{
 
         <div id="header-links">
         <h2><a href="./uutiset.php">Uutiset</a></h2>
-        <h2><a href="./tilastot.html">Tilastot</a></h2>
-        <h2><a href="./joukkueet.html">Joukkueet</a></h2>
+        <h2><a href="./tilastot.php">Tilastot</a></h2>
+        <h2><a href="./joukkueet.php">Joukkueet</a></h2>
     </div>
     </header> 
 
@@ -331,14 +331,14 @@ footer{
     </main>
 
     <footer>
-      <h3><a href="pages/contact.php">Contact us</a></h3>
+      <h3><a href="./contact.php">Contact us</a></h3>
       
       <?php
       if (isset($_SESSION['logged_in'])) {
-        echo ("<h3><a href='php/logout.php'>Kirjaudu ulos</a></h3>");
+        echo ("<h3><a href='../php/logout.php'>Kirjaudu ulos</a></h3>");
         echo ("<p>Olet kirjautunut käyttäjällä: {$_SESSION['kayttajanimi']}</p>");
       } else {
-        echo ("<h3><a href='pages/kirjautumis.php'>Kirjaudu sisään</a></h3>");
+        echo ("<h3><a href='./kirjautumis.php'>Kirjaudu sisään</a></h3>");
       }
       
       ?>
