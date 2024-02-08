@@ -28,6 +28,7 @@ include("../php/connect.php");
     <style>
         main{
             display: block;
+            text-align: center;
         }
         .container{
             display: flex;
@@ -38,22 +39,47 @@ include("../php/connect.php");
         }a:link{
             color: #FF0000;
         }
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
     </style>
 </head>
 <body>
     <main>
     <h2>Viestit contact lomakkeelta</h2>
     <div class="container">
+        <table>
+            <tr>
+                <th>Poista?</th>
+                <th>user_id</th>
+                <th>Viesti</th>
+            </tr>
         <?php
         // Tulostetaan viestit
             $tulos=mysqli_query($yhteys, "select * from contact");# haetaan contact taulusta kaikki rivit
                 
-            while ($rivi=mysqli_fetch_object($tulos)){ # loopataan rivien läpi 
-                echo "<a href='../php/poista_viesti.php?poistettava=$rivi->id'>Poista</a>\n
-                <li>$rivi->user_id $rivi->message";
+            while ($rivi=mysqli_fetch_object($tulos)){ # loopataan rivien läpi
+                echo "<tr>";
+                echo "<td><a href='../php/poista_viesti.php?poistettava=$rivi->id'>Poista</a></td>\n
+                <td>$rivi->user_id</td> 
+                <td>$rivi->message</td>";
+                echo "</tr>";
             }
                 
         ?>
+        </table>
     </div>
 
     <h2>Ohjeet uutisen lisääminen</h2>
