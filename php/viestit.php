@@ -13,8 +13,8 @@
         <h1><a href="../index.php">Liiga - Suomen parasta kiekkoa</a></h1>
         <div id="header-links">
             <h2><a href="../pages/uutiset.php">Uutiset</a></h2>
-            <h2><a href="../pages/tilastot.html">Tilastot</a></h2>
-            <h2><a href="../pages/joukkueet.html">Joukkueet</a></h2>
+            <h2><a href="../pages/tilastot.php">Tilastot</a></h2>
+            <h2><a href="../pages/joukkueet.php">Joukkueet</a></h2>
         </div>
     </header>
 

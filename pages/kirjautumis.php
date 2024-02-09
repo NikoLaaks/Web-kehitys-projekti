@@ -28,6 +28,15 @@
 
     main {
         justify-content: flex-start;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    input {
+        border: 1px solid #333;
+        width: 200px;
+        height: 25px;
+        margin: 2px;
+        box-sizing: border-box;
+        display: flex;
     }
     
 
@@ -51,8 +60,8 @@
     <h3>Uusi käyttäjä, rekisteröidy alla!</h3> <!-- Lomake lähettää käyttäjänimen, salasanan
      rekisteroidy.php joka tallettaa tietokantaan antamat tiedot-->
     <form name="rekisteroidy" action="../php/rekisteroidy.php" method="post">
-        Käyttäjänimi: <input type="text" name="uusikayttaja" size="40" maxlength="20" required />
-        Salasana: <input type="password" name="uusisalasana" required />
+    <label for='uusikayttaja'>Käyttäjänimi:</label><input type="text" name="uusikayttaja" size="20" maxlength="20" required /><br>
+    <label for='password'>Salasana:</label><input type="password" name="uusisalasana" required /><br>
         <input type="submit" name="rekisteröityminen" value="Rekisteröidy" />
     </form>
     </div>
@@ -67,8 +76,8 @@
     <div class="formi">
     <h3>Kirjaudu alla!</h3> <!-- Lomake lähettää käyttäjänimen, salasanan kirjautuminen.php ohjelmalle -->
     <form name="kirjautuminen"  action="../php/kirjautuminen.php" method="post">
-        Käyttäjänimi: <input type="text" name="kayttajanimi" size="40" maxlength="20" required/>
-        Salasana: <input type="password" name="salasana" required />
+    <label for='kayttajanimi'>Käyttäjänimi:</label><input type="text" name="kayttajanimi" size="20" maxlength="20" required/><br>
+    <label for='password'>Salasana:</label><input type="password" name="salasana" required /><br>
         <input type="submit" name="kirjaudu" value="Kirjaudu" />
     </form>
     </div>
