@@ -66,8 +66,11 @@ include("../php/connect.php");
         }.container{
             text-align: center;
             margin-bottom:25px;
+            display: flex;
+            margin: 15px;
+            
         }input{
-            width: 400px;
+            max-width: 400px;
         }#submit{
             margin-bottom: 15px;
             max-width: 150px;
@@ -79,6 +82,10 @@ include("../php/connect.php");
         }p{
             color:red;
             font-size: 20px;
+        }#text-container{
+            padding: 15px;
+        }#message-container{
+            padding: 15px;
         }
     </style>
 </head>
@@ -111,8 +118,10 @@ include("../php/connect.php");
         </div>
     </div>
     <div class="container">
-    <h2>Ohjeet uutisen lisääminen</h2>
-    <p>Kirjoita url muodossa osoite.fi eli vain www. jälkeen tulevat. <br>Muista antaa alt kohtaan lyhyt teksti mitä on kuvassa</p>
+        <div id="text-container">
+            <h2>Ohjeet uutisen lisääminen</h2>
+            <p>Kirjoita url muodossa osoite.fi eli vain www. jälkeen tulevat. <br>Muista antaa alt kohtaan lyhyt teksti mitä on kuvassa</p>
+        
 
     <form action="../php/lisaa_uutinen.php" method="post" enctype="multipart/form-data">
         <label for="title">Otsikko:</label>
@@ -128,8 +137,9 @@ include("../php/connect.php");
         <input type="file" id="image" name="image" accept="image/*" required><br>
 
         <input type="submit" value="Lisää Uutinen" id="submit">
-        <!--Lisää tähän vielä joku preview tietokannassa olevista uutisista ja poisto mahdollisuus niille
-        esim otsikon perusteella poisto mahdollisuus-->
+        </form>
+        </div>
+        <div id="message-container">
         <h2>Sivuilla näkyvät uutiset</h2>
         <table>
             <tr>
@@ -149,7 +159,8 @@ include("../php/connect.php");
             }
             ?>
         </table>
-    </form>
+
+    
     </div>
     </main>
 </body>
