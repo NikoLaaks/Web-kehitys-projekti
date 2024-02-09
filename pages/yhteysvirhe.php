@@ -1,12 +1,12 @@
 <?php
-session_start();
+header("HTTP/1.0 404 Not Found");
 ?>
 <!DOCTYPE html>
 <html lang="fi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="/web-kehitys-projekti-team21/css/styles.css">
     <title>Yhteysvirhe</title>
 
 <style>
@@ -21,7 +21,7 @@ session_start();
          }
          
          main{
-            background-image: url('../images/patrik.jpg');
+            background-image: url('/web-kehitys-projekti-team21/images/patrik.jpg');
             background-position: center center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -48,12 +48,12 @@ session_start();
 <body>
     
     <header>
-        <h1><a href="../index.php">Liiga - Suomen parasta kiekkoa</a></h1>
+        <h1><a href="/web-kehitys-projekti-team21/index.php">Liiga - Suomen parasta kiekkoa</a></h1>
 
         <div id="header-links">
-        <h2><a href="./uutiset.php">Uutiset</a></h2>
-        <h2><a href="./tilastot.php">Tilastot</a></h2>
-        <h2><a href="./joukkueet.php">Joukkueet</a></h2>
+        <h2><a href="/web-kehitys-projekti-team21/pages/uutiset.php">Uutiset</a></h2>
+        <h2><a href="/web-kehitys-projekti-team21/pages/tilastot.php">Tilastot</a></h2>
+        <h2><a href="/web-kehitys-projekti-team21/pages/joukkueet.php">Joukkueet</a></h2>
     </div>
     </header>
 <main>
@@ -67,17 +67,9 @@ session_start();
 
 </main>
 <footer>
-    <h3><a href="./contact.php">Contact us</a></h3>
+    <h3><a href="/web-kehitys-projekti-team21/pages/contact.php">Contact us</a></h3>
     
-    <?php
-    if (isset($_SESSION['logged_in'])) {
-      echo ("<h3><a href='../php/logout.php'>Kirjaudu ulos</a></h3>");
-      echo ("<p>Olet kirjautunut käyttäjällä: {$_SESSION['kayttajanimi']}</p>");
-    } else {
-      echo ("<h3><a href='./kirjautumis.php'>Kirjaudu sisään</a></h3>");
-    }
-    
-    ?>
+
 </footer>
 
 </body>
