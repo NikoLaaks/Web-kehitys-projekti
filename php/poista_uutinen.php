@@ -3,7 +3,7 @@
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 include('./connect.php');
 
-$poistettava=isset($_GET["poistettava"]) ? $_GET["poistettava"] : "";
+$poistettava=isset($_GET["id"]) ? $_GET["id"] : "";
 
 //Jos tieto on annettu, poistetaan uutinen tietokannasta
 if (!empty($poistettava)){
@@ -24,8 +24,9 @@ if (!empty($poistettava)){
         // Poista tiedosto kansiosta
         if (file_exists($image_path)) {
             unlink($image_path);
+            
         } else {
-            echo "Image not found.";
+            echo "Kuvaa ei löytynyt";
         }
     }
     
@@ -35,10 +36,7 @@ if (!empty($poistettava)){
     mysqli_stmt_bind_param($stmt, 'i', $poistettava);
     //Suoritetaan sql-lause
     mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+}else{
+    echo 'Poistettavan uutisen id puuttuu';
 }
-//Suljetaan tietokantayhteys
-mysqli_close($yhteys);
-//ja ohjataan pyyntö takaisin listaukseen
-header("Location:../pages/admin.php");
-exit;
-?>

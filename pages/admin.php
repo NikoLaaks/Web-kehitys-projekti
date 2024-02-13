@@ -84,7 +84,7 @@ include("../php/connect.php");
             font-size: 20px;
         }#text-container{
             padding: 15px;
-        }#message-container{
+        }#news-container{
             padding: 15px;
         }
     </style>
@@ -139,29 +139,58 @@ include("../php/connect.php");
         <input type="submit" value="Lisää Uutinen" id="submit">
         </form>
         </div>
-        <div id="message-container">
+        <div id="news-container">
         <h2>Sivuilla näkyvät uutiset</h2>
-        <table>
-            <tr>
-                <th>Poista?</th>
-                <th>title</th>
-            </tr>
-            <?php
+        <div id="uutis-taulukko"></div>
             
-            $tulos=mysqli_query($yhteys, "SELECT * FROM uutiset ORDER BY id DESC");# haetaan uutiset taulusta kaikki rivit
-            
-            
-            while ($rivi=mysqli_fetch_object($tulos)){ # loopataan rivien läpi
-                echo "<tr>";
-                echo "<td><a href='../php/poista_uutinen.php?poistettava=$rivi->id'>Poista</a></td>";
-                echo "<td>$rivi->title</td>";
-                echo "</tr>";
-            }
-            ?>
-        </table>
+        
 
     
     </div>
     </main>
+    <script>
+        function poistaUutinen(id) {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    haeUutiset();
+                }
+            };
+            xmlhttp.open("GET", "../php/poista_uutinen.php?id=" + id, true);
+            xmlhttp.send();
+        }
+
+
+        function haeUutiset() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var json = this.responseText;
+                    var uutiset = JSON.parse(json);
+                    tulostaTaulukko(uutiset);
+                }
+            };
+            xmlhttp.open("GET", "../php/hae_uutiset.php", true);
+            xmlhttp.send();
+        }
+
+        function tulostaTaulukko(uutiset){
+            var tableHtml = "<table border='1'><tr><th>ID</th><th>Title</th><th>Url</th><th>Poista?</th></tr>";
+            for (var i = 0; i < uutiset.length; i++) {
+                tableHtml += "<tr><td>" + uutiset[i].id + "</td><td>" + uutiset[i].title + "</td><td>" + uutiset[i].url +
+                     "</td><td><button onclick='poistaUutinen(" + uutiset[i].id + ");'>Poista</button></td></tr>";
+                
+            }
+            tableHtml += "</table>";
+            document.getElementById("uutis-taulukko").innerHTML = tableHtml;
+            
+        }
+    </script>
+    <script>
+    window.onload = function() {
+        haeUutiset();
+        //setInterval(haeUutiset, 10000);
+    };
+    </script>
 </body>
 </html>
