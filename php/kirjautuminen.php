@@ -38,6 +38,6 @@
 
     ?>
     <!-- 2 sekunnin kuluttua siirtyy takaisin contact sivulle-->
-    <meta http-equiv="refresh" content="2; url=../pages/contact.php" />
+    <meta http-equiv="refresh" content="2; url=../index.php" />
 
     
