@@ -87,9 +87,43 @@ include("../php/connect.php");
         }#news-container{
             padding: 15px;
         }
+        footer{
+            width: auto;
+            display: flex;
+            justify-content: center;
+         }
+         #otsikko{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+         }
+         h3{
+            display: block;
+            margin-right: 7px;
+         }
+         h2 a{
+            padding: 0;
+         }
+         h1 a{
+            padding: 0;
+         }
+         footer a{
+            padding:0;
+         }#title, #url, #alt{
+            width: 75%;
+         }
     </style>
 </head>
 <body>
+    <header>
+        <h1><a href="../index.php">Liiga - Suomen parasta kiekkoa</a></h1>
+
+        <div id="header-links">
+        <h2><a href="./uutiset.php">Uutiset</a></h2>
+        <h2><a href="./tilastot.php">Tilastot</a></h2>
+        <h2><a href="./joukkueet.php">Joukkueet</a></h2>
+    </div>
+    </header>
     <main>
     
     <div id="message_container">
@@ -186,6 +220,19 @@ include("../php/connect.php");
             
         }
     </script>
+    <footer>
+    <h3><a href="./contact.php">Contact us</a></h3>
+    
+    <?php
+        if (isset($_SESSION['logged_in'])) {
+            echo ("<h3><a href='../php/logout.php'>Kirjaudu ulos</a></h3>");
+            echo ("<p>Olet kirjautunut käyttäjällä: {$_SESSION['kayttajanimi']}</p>");
+        } else {
+            echo ("<h3><a href='./kirjautumis.php'>Kirjaudu sisään</a></h3>");
+        }
+        
+        ?>
+    </footer>
     <script>
     window.onload = function() {
         haeUutiset();
