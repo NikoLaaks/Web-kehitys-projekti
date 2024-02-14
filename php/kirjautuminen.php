@@ -37,7 +37,7 @@
     $ok=mysqli_close($yhteys);
 
     ?>
-    <!-- 2 sekunnin kuluttua siirtyy takaisin contact sivulle-->
+    <!-- 2 sekunnin kuluttua siirtyy takaisin etusivulle-->
     <meta http-equiv="refresh" content="2; url=../index.php" />
 
     
