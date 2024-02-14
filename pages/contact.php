@@ -1,11 +1,7 @@
 <?php 
 session_start();
 
-// Tarkistetaan onko käyttäjä kirjautunut
-if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] == 0) {
-    header("Location:./kirjautumis.php");
-    exit();
-}
+
 ?>
 
 <!DOCTYPE html>

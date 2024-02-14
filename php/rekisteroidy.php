@@ -12,17 +12,23 @@
     if (empty($uusikayttaja) || empty($uusisalasana)){
     exit;
 }
-    //Syötetään tietokantaan käyttäjän antamat kayttajatunnus, salasana
-    $sql="insert into kayttajat (kayttajatunnus, salasana) values(?, ?)";
+    $tulos=mysqli_query($yhteys, "SELECT * FROM kayttajat WHERE kayttajatunnus = '$uusikayttaja'");
+    if (mysqli_num_rows($tulos) > 0){
+        header("Location:../pages/kirjautumis.php?login=error");
+    }
+    else{
+        //Syötetään tietokantaan käyttäjän antamat kayttajatunnus, salasana
+        $sql="insert into kayttajat (kayttajatunnus, salasana) values(?, ?)";
 
-    //Valmistellaan sql-lause
-    $stmt=mysqli_prepare($yhteys, $sql);
-    //Sijoitetaan muuttujat oikeisiin paikkoihin
-    mysqli_stmt_bind_param($stmt, 'ss', $uusikayttaja, $hashsalasana);
-    //Suoritetaan sql-lause
-    mysqli_stmt_execute($stmt);
-    //Suljetaan tietokantayhteys
-    mysqli_close($yhteys);
-    header("Location:../pages/kirjautumis.php?login=ok");
-exit;
-?>
+        //Valmistellaan sql-lause
+        $stmt=mysqli_prepare($yhteys, $sql);
+        //Sijoitetaan muuttujat oikeisiin paikkoihin
+        mysqli_stmt_bind_param($stmt, 'ss', $uusikayttaja, $hashsalasana);
+        //Suoritetaan sql-lause
+        mysqli_stmt_execute($stmt);
+        //Suljetaan tietokantayhteys
+        mysqli_close($yhteys);
+        header("Location:../pages/kirjautumis.php?login=ok");
+    exit;
+    }
+    ?>

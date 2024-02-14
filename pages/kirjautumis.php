@@ -68,8 +68,10 @@
 
     <?php // Jos saadaan rekisterointi.php ohjelmalta get loginille tallennettu arvo onnistuneesti
      //Käyttäjälle tulee tieto, että onnistui
-    if (isset($_GET["login"])) {
+    if (isset($_GET["login"]) && $_GET['login'] == 'ok') {
         echo ("Rekisteröinti onnistui!");
+    }elseif(isset($_GET["login"]) && $_GET['login'] == 'error') {
+        echo ("Rekisteröinti epäonnistui!");
     }
     ?>
     

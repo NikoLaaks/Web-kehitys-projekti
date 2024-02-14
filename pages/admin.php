@@ -2,7 +2,7 @@
 session_start();
 
 //Tarkistetaan onko käyttäjällä admin oikeudet
-if(!isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 0) {
+if(!isset($_SESSION['is_admin'])|| $_SESSION['is_admin'] == 0) {
     header("Location:./kirjautumis.php");
     exit();
 }
@@ -130,6 +130,7 @@ include("../php/connect.php");
                 <th>Poista?</th>
                 <th>email</th>
                 <th>Viesti</th>
+                <th>Käyttäjä id</th>
             </tr>
         <?php
         // Tulostetaan viestit
@@ -139,7 +140,8 @@ include("../php/connect.php");
                 echo "<tr>";
                 echo "<td><a href='../php/poista_viesti.php?poistettava=$rivi->id'>Poista</a></td>\n
                 <td>$rivi->email</td> 
-                <td>$rivi->message</td>";
+                <td>$rivi->message</td>
+                <td>$rivi->user_id</td>";
                 echo "</tr>";
             }
                 
