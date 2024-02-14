@@ -1,13 +1,9 @@
 <?php
-// Start the session
 session_start();
 
-// Check if the user is logged in and is an admin
-if(isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1) {
-    // User is logged in as an admin, show the admin page
-} else {
-    // User is not logged in as an admin, redirect them to another page
-    header("Location:./kirjautumis.php"); // Redirect to the login page
+//Tarkistetaan onko käyttäjällä admin oikeudet
+if(!isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 0) {
+    header("Location:./kirjautumis.php");
     exit();
 }
 
