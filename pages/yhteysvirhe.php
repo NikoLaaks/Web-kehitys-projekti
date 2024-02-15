@@ -48,7 +48,7 @@ header("HTTP/1.0 404 Not Found");
 <body>
     
     <header>
-        <h1><a href="/trtkp23_21/web-kehitys-projekti-team21/index.php">Liiga - Suomen parasta kiekkoa</a></h1>
+        <h1><a href="/~trtkp23_21/web-kehitys-projekti-team21/index.php">Liiga - Suomen parasta kiekkoa</a></h1>
 
         <div id="header-links">
         <h2><a href="/~trtkp23_21/web-kehitys-projekti-team21/pages/uutiset.php">Uutiset</a></h2>
