@@ -4,7 +4,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 include('./connect.php');
 
 $poistettava=isset($_GET["poistettava"]) ? $_GET["poistettava"] : "";
-
+// Tarkistetaan onko saatu poistettavan viestin id
 if (!empty($poistettava)){
     
     $sql="DELETE FROM contact WHERE id=?";

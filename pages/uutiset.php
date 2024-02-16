@@ -134,6 +134,7 @@ if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] == 0) {
             # haetaan uutiset taulusta title, url ja kuvan tiedostonimi
             $tulos=mysqli_query($yhteys, "SELECT title, url, imagename, alt FROM uutiset ORDER BY id DESC");
             if($tulos->num_rows > 0) {
+                // Tulostetaan uutiset haluttuun muotoon sivulle
                 while($row = mysqli_fetch_array($tulos)) {
                     echo "<div class='news-item'>";
                     echo "<a href='https://www.{$row['url']}' target='_blank'>";

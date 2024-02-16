@@ -133,10 +133,10 @@ include("../php/connect.php");
                 <th>Käyttäjä id</th>
             </tr>
         <?php
-        // Tulostetaan viestit
             $tulos=mysqli_query($yhteys, "select * from contact");# haetaan contact taulusta kaikki rivit
                 
             while ($rivi=mysqli_fetch_object($tulos)){ # loopataan rivien läpi
+                // Tulostetaan viestit html tauluun
                 echo "<tr>";
                 echo "<td><a href='../php/poista_viesti.php?poistettava=$rivi->id'>Poista</a></td>\n
                 <td>$rivi->email</td> 
@@ -154,7 +154,7 @@ include("../php/connect.php");
             <h2>Ohjeet uutisen lisääminen</h2>
             <p>Kirjoita url muodossa osoite.fi eli vain www. jälkeen tulevat. <br>Muista antaa alt kohtaan lyhyt teksti mitä on kuvassa</p>
         
-
+            <!-- Formi uutisten lisäämiseen -->
     <form action="../php/lisaa_uutinen.php" method="post" enctype="multipart/form-data">
         <label for="title">Otsikko:</label>
         <input type="text" id="title" name="title" required><br>
@@ -182,13 +182,19 @@ include("../php/connect.php");
     </main>
     <script>
         function poistaUutinen(id) {
+            // Luodaan uusi xmlhttprequest olio
             var xmlhttp = new XMLHttpRequest();
+            // Määritetään tapahtumankäsittelijä joka suoritetaan kun olion tila muuttuu
             xmlhttp.onreadystatechange = function() {
+                // Tarkistetaan onko pyyntö valmis (4) ja onko vastauks onnistunut (200)
                 if (this.readyState == 4 && this.status == 200) {
+                    // Suoritetaan haeuutiset funktio kun pyyntö ja vastaus on valmis
                     haeUutiset();
                 }
             };
+            // Määritellään http pyyntö seuraavilla parametreilla
             xmlhttp.open("GET", "../php/poista_uutinen.php?id=" + id, true);
+            // Lähetetään varsinainen pyyntö
             xmlhttp.send();
         }
 
@@ -197,8 +203,11 @@ include("../php/connect.php");
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
+                    // Tallennetaan vastauksen tekstisisältö muuttujaan
                     var json = this.responseText;
+                    // Muutetaan json tekstisisältö  javascript objektiksi parse funktiolla
                     var uutiset = JSON.parse(json);
+                    // Suoritetaan tulostaTaulukko funktio parametrinaan uutisobjekti
                     tulostaTaulukko(uutiset);
                 }
             };
@@ -207,13 +216,17 @@ include("../php/connect.php");
         }
 
         function tulostaTaulukko(uutiset){
+            // Luodaan muuttuja johon lisätään taulukon headerit
             var tableHtml = "<table border='1'><tr><th>ID</th><th>Title</th><th>Url</th><th>Poista?</th></tr>";
+            // Käydään läpi kaikki uutiset jotka ovat tulleet parametrina
             for (var i = 0; i < uutiset.length; i++) {
+                // Jokaiselle uutiselle lisätään uusi rivi ja sarakkeet
                 tableHtml += "<tr><td>" + uutiset[i].id + "</td><td>" + uutiset[i].title + "</td><td>" + uutiset[i].url +
                      "</td><td><button onclick='poistaUutinen(" + uutiset[i].id + ");'>Poista</button></td></tr>";
                 
             }
             tableHtml += "</table>";
+            // Sijoitetaan luotu taulukko sivulle uutis-taulukko diviin
             document.getElementById("uutis-taulukko").innerHTML = tableHtml;
             
         }
@@ -232,6 +245,7 @@ include("../php/connect.php");
         ?>
     </footer>
     <script>
+        // Haetaan uutiset kun koko sivu on muuten ladattu
     window.onload = function() {
         haeUutiset();
         //setInterval(haeUutiset, 10000);

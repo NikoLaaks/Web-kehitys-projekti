@@ -7,25 +7,27 @@
     include('./connect.php');
 
 
-    // Kerää lomakkeen tiedot
+    // Kerää lomakkeen tiedot muuttujiin
     $title = $_POST['title'];
     $url = $_POST['url'];
     $alt = $_POST['alt'];
     
     // Käsittely kuvalle
     $target_dir = "../images/uutiset/";
+    // Muodostetaan täydellinen polku kuvalle
     $target_file = $target_dir . basename($_FILES["image"]["name"]);
+    // Siirretään kuva väliaikaisesta sijainnista luotuun polkuun
     move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
     
-    // Lisää tiedot tietokantaan
+    // Luodaan sql kysely
     $sql = "INSERT INTO uutiset (title, url, imagename, alt) VALUES (?, ?, ?, ?)";
-    //Valmistellaan sql-lause
+    //Valmistellaan sql kysely
     $stmt=mysqli_prepare($yhteys, $sql);
     //Sijoitetaan muuttujat oikeisiin paikkoihin
     mysqli_stmt_bind_param($stmt, 'ssss', $title, $url, $target_file, $alt);
-    //Suoritetaan sql-lause
+    //Suoritetaan sql kysely
     $success = mysqli_stmt_execute($stmt);
-    //Suljetaan tietokantayhteys
+
     
     if ($success) {
         echo "Uutinen lisätty onnistuneesti!";

@@ -3,9 +3,10 @@
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 include('./connect.php');
 
+// Tarkistetaan onko saatu uutisen id
 $poistettava=isset($_GET["id"]) ? $_GET["id"] : "";
 
-//Jos tieto on annettu, poistetaan uutinen tietokannasta
+//Jos id ei ole tyhjä niin suoritetaan poisto
 if (!empty($poistettava)){
     // Hae kuvan tiedostonimi
     $sql_select = "SELECT imagename FROM uutiset WHERE id=?";
