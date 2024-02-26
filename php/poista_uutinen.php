@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+//Tarkistetaan onko käyttäjällä admin oikeudet
+if(!isset($_SESSION['is_admin'])|| $_SESSION['is_admin'] == 0) {
+    header("Location:./kirjautumis.php");
+    exit();
+}
 //Yhdistetään tietokantaan
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 include('./connect.php');
